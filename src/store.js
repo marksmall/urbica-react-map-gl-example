@@ -3,9 +3,11 @@ import { applyMiddleware, compose, createStore } from "redux";
 import { combineReducers } from "redux";
 
 import map from "./map/map.reducer";
+import mapstyle from "./mapstyle-switcher/mapstyle-switcher.reducer";
 
 const rootReducer = combineReducers({
-  map
+  map,
+  mapstyle
 });
 
 // 1. Setup store to use middleware (thunk) to create API calls.

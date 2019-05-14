@@ -50,26 +50,30 @@ class AbstractMap extends Component {
   };
 
   render() {
-    const { fillColour, viewport, setViewport } = this.props;
+    const { fillColour, viewport, setViewport, selectedMapStyle } = this.props;
+    console.log("MAP PROPS: ", this.props);
 
     return (
       <div className={styles["multi-map"]}>
-        <MapGL
-          style={{ width: "50vw", height: "100vh" }}
-          mapStyle="mapbox://styles/mapbox/light-v9"
-          accessToken="pk.eyJ1IjoiYXN0cm9zYXQiLCJhIjoiY2o3YWtjNnJzMGR6ajM3b2FidmNwaDNsaSJ9.lwWi7kOiejlT0RbD7RxtmA"
-          latitude={viewport.latitude}
-          longitude={viewport.longitude}
-          zoom={viewport.zoom}
-          onViewportChange={viewport => setViewport(viewport)}
-          onLoad={this.onLoad}
-          onStyledata={this.onStyledata}
-          onZoomend={this.onZoomend}
-          onData={this.onData}
-        >
-          <LadLayer />
-          <LsoaLayer fillColour={fillColour} />
-        </MapGL>
+        {selectedMapStyle && (
+          <MapGL
+            style={{ width: "50vw", height: "100vh" }}
+            mapStyle="mapbox://styles/mapbox/light-v9"
+            // mapStyle={selectedMapStyle.uri}
+            accessToken="pk.eyJ1IjoiYXN0cm9zYXQiLCJhIjoiY2o3YWtjNnJzMGR6ajM3b2FidmNwaDNsaSJ9.lwWi7kOiejlT0RbD7RxtmA"
+            latitude={viewport.latitude}
+            longitude={viewport.longitude}
+            zoom={viewport.zoom}
+            onViewportChange={viewport => setViewport(viewport)}
+            onLoad={this.onLoad}
+            onStyledata={this.onStyledata}
+            onZoomend={this.onZoomend}
+            onData={this.onData}
+          >
+            <LadLayer />
+            <LsoaLayer fillColour={fillColour} />
+          </MapGL>
+        )}
       </div>
     );
   }
