@@ -17,13 +17,13 @@ const MultiMap = ({
   selectMapStyle
 }) => (
   <div className={styles["multi-map"]}>
-    {/* {mapStyles && selectedMapStyle && (
+    {mapStyles && selectedMapStyle && (
       <MapStyleSwitcher
         mapStyles={mapStyles}
         selectedMapStyle={selectedMapStyle}
         selectMapStyle={selectMapStyle}
       />
-    )} */}
+    )}
     <ReactMap
       geocoder={geocoder}
       fillColour="rgb(0,0,0)"

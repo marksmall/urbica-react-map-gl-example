@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import MapGL from "@urbica/react-map-gl";
+import MapGL, { NavigationControl, ScaleControl } from "@urbica/react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import LadLayer from "./lad-layer.component";
@@ -22,14 +22,14 @@ class AbstractMap extends Component {
     }
   };
 
-  onStyledata = event => {
-    // console.log("ONSTYLEDATA FUNCTION CALLED: ", event);
-  };
-
   onData = event => {
     const map = event.target;
-    // console.log("ONSOURCEDATA FUNCTION CALLED: ", event, map);
-    if (event.sourceId === "lsoa-source" && map.isSourceLoaded("lsoa-source")) {
+    // Get Source features to store.
+    if (
+      event.sourceId === "lsoa-source" &&
+      map.getSource("lsoa-source") &&
+      map.isSourceLoaded("lsoa-source")
+    ) {
       console.log(
         "LSOA SOURCE & FEATURES: ",
         map.getSource("lsoa-source"),
@@ -39,8 +39,8 @@ class AbstractMap extends Component {
   };
 
   onZoomend = event => {
+    // Ensure other map(s) update themselves when using geocoder.
     const map = event.target;
-    // console.log("ONZOOMEND FUNCTION CALLED: ", event, map.getZoom());
     const { lng, lat } = map.getCenter();
     this.props.setViewport({
       longitude: lng,
@@ -58,20 +58,22 @@ class AbstractMap extends Component {
         {selectedMapStyle && (
           <MapGL
             style={{ width: "50vw", height: "100vh" }}
-            mapStyle="mapbox://styles/mapbox/light-v9"
-            // mapStyle={selectedMapStyle.uri}
+            // mapStyle="mapbox://styles/mapbox/light-v9"
+            mapStyle={selectedMapStyle.uri}
             accessToken="pk.eyJ1IjoiYXN0cm9zYXQiLCJhIjoiY2o3YWtjNnJzMGR6ajM3b2FidmNwaDNsaSJ9.lwWi7kOiejlT0RbD7RxtmA"
             latitude={viewport.latitude}
             longitude={viewport.longitude}
             zoom={viewport.zoom}
             onViewportChange={viewport => setViewport(viewport)}
             onLoad={this.onLoad}
-            onStyledata={this.onStyledata}
             onZoomend={this.onZoomend}
             onData={this.onData}
           >
             <LadLayer />
             <LsoaLayer fillColour={fillColour} />
+
+            <ScaleControl unit="metric" position="bottom-left" />
+            <NavigationControl showZoom position="bottom-right" />
           </MapGL>
         )}
       </div>
