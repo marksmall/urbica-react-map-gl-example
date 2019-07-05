@@ -2,8 +2,7 @@ import React from "react";
 
 import MultiMapContainer from "./map/multi-map.container";
 
-import logo from "./logo.svg";
-import "./App.css";
+import "./app.module.css";
 
 function App() {
   return (

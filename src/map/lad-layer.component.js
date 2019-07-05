@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { Source, Layer } from "@urbica/react-map-gl";
 
@@ -18,7 +17,5 @@ const LadLayer = () => (
     />
   </>
 );
-
-LadLayer.propTypes = {};
 
 export default LadLayer;
