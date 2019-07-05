@@ -1,16 +1,16 @@
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { getViewport } from "../map/map.selector";
-import { setViewport } from "../map/map.actions";
+import { getViewport } from '../map/map.selector';
+import { setViewport } from '../map/map.actions';
 
 import {
   getMapStyles,
   getSelectedMapStyle
-} from "../mapstyle-switcher/mapstyle-switcher.selector";
-import { selectMapStyle } from "../mapstyle-switcher/mapstyle-switcher.actions";
+} from '../mapstyle-switcher/mapstyle-switcher.selector';
+import { selectMapStyle } from '../mapstyle-switcher/mapstyle-switcher.actions';
 
-import MultiMap from "./multi-map.component";
+import MultiMap from './multi-map.component';
 
 const mapStateToProps = state => ({
   viewport: getViewport(state),

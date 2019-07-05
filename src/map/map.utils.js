@@ -1,6 +1,6 @@
-import mapboxgl from "mapbox-gl";
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 export const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -25,13 +25,13 @@ const coordinatesGeocoder = query => {
     return {
       center: [lng, lat],
       geometry: {
-        type: "Point",
+        type: 'Point',
         coordinates: [lng, lat]
       },
-      place_name: "Lat: " + lat + ", Lng: " + lng,
-      place_type: ["coordinate"],
+      place_name: 'Lat: ' + lat + ', Lng: ' + lng,
+      place_type: ['coordinate'],
       properties: {},
-      type: "Feature"
+      type: 'Feature'
     };
   }
 
@@ -63,5 +63,5 @@ export const geocoder = new MapboxGeocoder({
   accessToken: MAPBOX_TOKEN,
   localGeocoder: coordinatesGeocoder,
   reverseGeocode: true,
-  placeholder: "55.961667, -3.165556 or Edinburgh"
+  placeholder: '55.961667, -3.165556 or Edinburgh'
 });

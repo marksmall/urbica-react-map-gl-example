@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import ReactMap from "./map.component";
+import ReactMap from './map.component';
 
-import { geocoder } from "../map/map.utils.js";
+import { geocoder } from '../map/map.utils.js';
 
-import MapStyleSwitcher from "../mapstyle-switcher/mapstyle-switcher.component";
+import MapStyleSwitcher from '../mapstyle-switcher/mapstyle-switcher.component';
 
-import styles from "./multi-map.module.css";
+import styles from './multi-map.module.css';
 
 const MultiMap = ({
   viewport,
@@ -16,7 +16,7 @@ const MultiMap = ({
   selectedMapStyle,
   selectMapStyle
 }) => (
-  <div className={styles["multi-map"]}>
+  <div className={styles['multi-map']}>
     {mapStyles && selectedMapStyle && (
       <MapStyleSwitcher
         mapStyles={mapStyles}

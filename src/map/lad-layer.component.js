@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Source, Layer } from "@urbica/react-map-gl";
+import { Source, Layer } from '@urbica/react-map-gl';
 
 const LadLayer = () => (
   <>
@@ -11,8 +11,8 @@ const LadLayer = () => (
       source="lad-source"
       source-layer="lad"
       paint={{
-        "line-color": "#000",
-        "line-width": 0.5
+        'line-color': '#000',
+        'line-width': 0.5
       }}
     />
   </>

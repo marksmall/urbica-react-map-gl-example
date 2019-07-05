@@ -1,4 +1,4 @@
-import { SET_VIEWPORT, SET_HOVERED_LSOA } from "./map.actions";
+import { SET_VIEWPORT, SET_HOVERED_LSOA } from './map.actions';
 
 const initialState = {
   viewport: {

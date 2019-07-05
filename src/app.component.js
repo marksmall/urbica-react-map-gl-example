@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import MultiMapContainer from "./map/multi-map.container";
+import MultiMapContainer from './map/multi-map.container';
 
-import "./app.module.css";
+import './app.module.css';
 
 function App() {
   return (

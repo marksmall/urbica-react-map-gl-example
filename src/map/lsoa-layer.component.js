@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Source, Layer } from "@urbica/react-map-gl";
+import { Source, Layer } from '@urbica/react-map-gl';
 
 const LsoaLayer = ({ fillColour, onLsoaHovered }) => (
   <>
@@ -13,8 +13,8 @@ const LsoaLayer = ({ fillColour, onLsoaHovered }) => (
       source-layer="lsoa_1"
       before="waterway-label"
       paint={{
-        "fill-color": fillColour,
-        "fill-opacity": 0.5
+        'fill-color': fillColour,
+        'fill-opacity': 0.5
       }}
       onHover={onLsoaHovered}
     />
