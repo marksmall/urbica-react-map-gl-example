@@ -1,9 +1,9 @@
-import thunk from "redux-thunk";
-import { applyMiddleware, compose, createStore } from "redux";
-import { combineReducers } from "redux";
+import thunk from 'redux-thunk';
+import { applyMiddleware, compose, createStore } from 'redux';
+import { combineReducers } from 'redux';
 
-import map from "./map/map.reducer";
-import mapstyle from "./mapstyle-switcher/mapstyle-switcher.reducer";
+import map from './map/map.reducer';
+import mapstyle from './mapstyle-switcher/mapstyle-switcher.reducer';
 
 const rootReducer = combineReducers({
   map,
@@ -16,7 +16,7 @@ const middleware = [thunk];
 
 let store;
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   // 1. Add redux dev tools (development mode only).
   // 2. Create store composed of reducers and middleware.
   const composeEnhancers =
