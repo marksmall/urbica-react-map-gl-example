@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Source, Layer } from '@urbica/react-map-gl';
 
-const LsoaLayer = ({ fillColour, onLsoaHovered }) => (
+const LsoaLayer = ({ fillColour, before }) => (
   <>
     <Source id="lsoa-source" type="vector" url="mapbox://thermcert.lsoa_1" />
     <Layer
@@ -11,18 +11,18 @@ const LsoaLayer = ({ fillColour, onLsoaHovered }) => (
       type="fill"
       source="lsoa-source"
       source-layer="lsoa_1"
-      before="waterway-label"
+      before={before}
       paint={{
         'fill-color': fillColour,
         'fill-opacity': 0.5
       }}
-      onHover={onLsoaHovered}
     />
   </>
 );
 
 LsoaLayer.propTypes = {
-  fillColour: PropTypes.string.isRequired
+  fillColour: PropTypes.string.isRequired,
+  before: PropTypes.string
 };
 
 export default LsoaLayer;

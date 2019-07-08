@@ -7,9 +7,18 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import LadLayer from './lad-layer.component';
 import LsoaLayer from './lsoa-layer.component';
 
+import { MAPBOX_TOKEN } from '../map/map.utils';
+
 import styles from './map.module.css';
 
 class AbstractMap extends Component {
+  static propTypes = {
+    fillColour: PropTypes.string.isRequired,
+    viewport: PropTypes.object.isRequired,
+    setViewport: PropTypes.func.isRequired,
+    geocoder: PropTypes.object
+  };
+
   onLoad = event => {
     if (event) {
       const map = event.target;
@@ -17,24 +26,6 @@ class AbstractMap extends Component {
       if (geocoder) {
         map.addControl(geocoder);
       }
-
-      // console.log("MAP STYLE: ", map.getStyle());
-    }
-  };
-
-  onData = event => {
-    const map = event.target;
-    // Get Source features to store.
-    if (
-      event.sourceId === 'lsoa-source' &&
-      map.getSource('lsoa-source') &&
-      map.isSourceLoaded('lsoa-source')
-    ) {
-      console.log(
-        'LSOA SOURCE & FEATURES: ',
-        map.getSource('lsoa-source'),
-        map.querySourceFeatures('lsoa-source', 'lsoa_1')
-      );
     }
   };
 
@@ -51,26 +42,24 @@ class AbstractMap extends Component {
 
   render() {
     const { fillColour, viewport, setViewport, selectedMapStyle } = this.props;
-    console.log('MAP PROPS: ', this.props);
+    const beforeId = 'waterway-label';
 
     return (
       <div className={styles['multi-map']}>
         {selectedMapStyle && (
           <MapGL
             style={{ width: '50vw', height: '100vh' }}
-            // mapStyle="mapbox://styles/mapbox/light-v9"
             mapStyle={selectedMapStyle.uri}
-            accessToken="pk.eyJ1IjoiYXN0cm9zYXQiLCJhIjoiY2o3YWtjNnJzMGR6ajM3b2FidmNwaDNsaSJ9.lwWi7kOiejlT0RbD7RxtmA"
+            accessToken={MAPBOX_TOKEN}
             latitude={viewport.latitude}
             longitude={viewport.longitude}
             zoom={viewport.zoom}
             onViewportChange={viewport => setViewport(viewport)}
             onLoad={this.onLoad}
             onZoomend={this.onZoomend}
-            onData={this.onData}
           >
-            <LadLayer />
-            <LsoaLayer fillColour={fillColour} />
+            <LadLayer before={beforeId} />
+            <LsoaLayer fillColour={fillColour} before={beforeId} />
 
             <ScaleControl unit="metric" position="bottom-left" />
             <NavigationControl showZoom position="bottom-right" />
@@ -80,11 +69,5 @@ class AbstractMap extends Component {
     );
   }
 }
-
-AbstractMap.propTypes = {
-  fillColour: PropTypes.string.isRequired,
-  viewport: PropTypes.object.isRequired,
-  setViewport: PropTypes.func.isRequired
-};
 
 export default AbstractMap;

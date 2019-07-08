@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import MultiMapContainer from './urbica-map/multi-map.container';
-import MultiMapContainer from './react-mapbox-gl-map/multi-map.container';
+import MultiMapContainer from './map/multi-map.container';
 
 import './app.module.css';
 

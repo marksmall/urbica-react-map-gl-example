@@ -25,7 +25,7 @@ const MAP_STYLE_DATA = [
 
 const initialState = {
   mapStyles: MAP_STYLE_DATA,
-  selectedMapStyle: MAP_STYLE_DATA[3]
+  selectedMapStyle: MAP_STYLE_DATA[2]
 };
 
 const reducer = (state = initialState, action) => {

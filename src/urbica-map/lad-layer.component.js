@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Source, Layer } from '@urbica/react-map-gl';
 
-const LadLayer = () => (
+const LadLayer = ({ before }) => (
   <>
     <Source id="lad-source" type="vector" url="mapbox://thermcert.lad" />
     <Layer
@@ -14,6 +14,7 @@ const LadLayer = () => (
         'line-color': '#000',
         'line-width': 0.5
       }}
+      before={before}
     />
   </>
 );

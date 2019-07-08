@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { getViewport } from '../map/map.selector';
-import { setViewport } from '../map/map.actions';
+import { getViewport } from './map.selector';
+import { setViewport } from './map.actions';
 
 import {
   getMapStyles,

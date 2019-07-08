@@ -4,7 +4,7 @@ const initialState = {
   viewport: {
     latitude: 55.961667,
     longitude: -3.165556,
-    zoom: [6]
+    zoom: 6
   },
   hoveredLsoaFeature: null
 };

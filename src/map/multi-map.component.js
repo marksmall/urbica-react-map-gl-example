@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ReactMap from './map.component';
+// import ReactMap from '../urbica-map/map.component';
+// import ReactMap from '../react-mapbox-gl-map/map.component';
+import ReactMap from '../mapbox-gl-js/map.component';
 
-import { geocoder } from '../map/map.utils.js';
+import { geocoder } from './map.utils.js';
 
 import MapStyleSwitcher from '../mapstyle-switcher/mapstyle-switcher.component';
 
