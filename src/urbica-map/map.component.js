@@ -56,7 +56,7 @@ class AbstractMap extends Component {
             zoom={viewport.zoom}
             onViewportChange={viewport => setViewport(viewport)}
             onLoad={this.onLoad}
-            onZoomend={this.onZoomend}
+            // onZoomend={this.onZoomend}
           >
             <LadLayer before={beforeId} />
             <LsoaLayer fillColour={fillColour} before={beforeId} />

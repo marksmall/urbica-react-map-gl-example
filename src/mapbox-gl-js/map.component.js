@@ -72,7 +72,6 @@ class AbstractMap extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     const {
       viewport: { longitude, latitude, zoom },
       fillColour,
@@ -103,30 +102,12 @@ class AbstractMap extends Component {
     this.map.on('styledata', () => {
       this.addLayers(fillColour);
     });
-
-    // Update viewport on pan/zoom.
-    this.map.on('drag', () => {
-      this.setViewport();
-    });
-    // this.map.on('zoom', () => {
-    //   this.setViewport();
-    // });
   }
 
   componentDidUpdate(prevProps) {
     console.log('componentDidUpdate');
     // Move map to lng/lat and zoom in props.
-    const {
-      viewport: { longitude, latitude, zoom },
-      selectedMapStyle
-    } = this.props;
-
-    if (this.map.getCenter() !== [longitude, latitude]) {
-      this.map.setCenter([longitude, latitude]);
-    }
-    // if (this.map.getZoom() !== zoom) {
-    //   this.map.setZoom(zoom);
-    // }
+    const { selectedMapStyle } = this.props;
 
     // Set map's style to that set in props.
     if (selectedMapStyle.uri !== prevProps.selectedMapStyle.uri) {
@@ -150,4 +131,17 @@ class AbstractMap extends Component {
   }
 }
 
-export default AbstractMap;
+function wrapMap(WrappedComponent) {
+  class WrappedMap extends Component {
+    render() {
+      const { forwardedRef, ...rest } = this.props;
+      return <WrappedComponent ref={forwardedRef} {...rest} />;
+    }
+  }
+
+  return React.forwardRef((props, ref) => {
+    return <WrappedMap {...props} forwardedRef={ref} />;
+  });
+}
+
+export default wrapMap(AbstractMap);
