@@ -21,7 +21,7 @@ class AbstractMap extends Component {
   map = null;
 
   addLayers(fillColour) {
-    const beforeId = 'waterways-label';
+    const beforeId = 'waterway-label';
 
     if (!this.map.getSource('lad-source')) {
       this.map.addSource('lad-source', {
@@ -29,17 +29,19 @@ class AbstractMap extends Component {
         url: 'mapbox://thermcert.lad'
       });
 
-      this.map.addLayer({
-        id: 'lad',
-        type: 'line',
-        source: 'lad-source',
-        'source-layer': 'lad',
-        paint: {
-          'line-color': '#000',
-          'line-width': 0.5
-        } //,
-        // beforeId
-      });
+      this.map.addLayer(
+        {
+          id: 'lad',
+          type: 'line',
+          source: 'lad-source',
+          'source-layer': 'lad',
+          paint: {
+            'line-color': '#000',
+            'line-width': 0.5
+          }
+        },
+        beforeId
+      );
     }
 
     if (!this.map.getSource('lsoa-source')) {
@@ -48,17 +50,19 @@ class AbstractMap extends Component {
         url: 'mapbox://thermcert.lsoa_1'
       });
 
-      this.map.addLayer({
-        id: 'lsoa',
-        type: 'fill',
-        source: 'lsoa-source',
-        'source-layer': 'lsoa_1',
-        paint: {
-          'fill-color': fillColour,
-          'fill-opacity': 0.5
-        } //,
-        // beforeId
-      });
+      this.map.addLayer(
+        {
+          id: 'lsoa',
+          type: 'fill',
+          source: 'lsoa-source',
+          'source-layer': 'lsoa_1',
+          paint: {
+            'fill-color': fillColour,
+            'fill-opacity': 0.5
+          }
+        },
+        beforeId
+      );
     }
   }
 
@@ -105,7 +109,6 @@ class AbstractMap extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate');
     // Move map to lng/lat and zoom in props.
     const { selectedMapStyle } = this.props;
 
