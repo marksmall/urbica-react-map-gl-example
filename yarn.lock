@@ -1124,10 +1124,10 @@
   resolved "https://registry.yarnpkg.com/@mapbox/jsonlint-lines-primitives/-/jsonlint-lines-primitives-2.0.2.tgz#ce56e539f83552b58d10d672ea4d6fc9adc7b234"
   integrity sha1-zlblOfg1UrWNENZy6k1vya3HsjQ=
 
-"@mapbox/mapbox-gl-geocoder@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-4.4.0.tgz#411c1cfba6a5ea160991fdbc03b9f1ee4055f0e4"
-  integrity sha512-DBlsMhFJiZSiQs1zAeyLxqZz+1OACRKPseCUMZ2RJP/9E6gTevDs1ey8uoLDSyoHcE8wysycbTxlj60Ojx6etA==
+"@mapbox/mapbox-gl-geocoder@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-geocoder/-/mapbox-gl-geocoder-4.4.1.tgz#32cb3f324b6f18c330653d36b72fbfdb97f15878"
+  integrity sha512-B6VXFNqKbdejJZOHJpZ+je5iUN+DDuG26AVtsEaewrhaKFkKAhA/pHAYfrIKzhobN6oG9gmy9D08v8WJ4fkD3g==
   dependencies:
     "@mapbox/mapbox-sdk" "^0.5.0"
     lodash.debounce "^4.0.6"
@@ -8639,10 +8639,10 @@ redux-thunk@^2.3.0:
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
   integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
-redux@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
-  integrity sha512-R7bAtSkk7nY6O/OYMVR9RiBI+XghjF9rlbl5806HJbQph0LJVHZrU5oaO4q70eUKiqMRqm4y07KLTlMZ2BlVmg==
+redux@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
+  integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"

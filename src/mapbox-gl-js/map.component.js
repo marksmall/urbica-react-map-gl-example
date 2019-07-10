@@ -134,8 +134,8 @@ class AbstractMap extends Component {
   }
 }
 
-function wrapMap(WrappedComponent) {
-  class WrappedMap extends Component {
+function syncMap(WrappedComponent) {
+  class SyncMap extends Component {
     render() {
       const { forwardedRef, ...rest } = this.props;
       return <WrappedComponent ref={forwardedRef} {...rest} />;
@@ -143,8 +143,8 @@ function wrapMap(WrappedComponent) {
   }
 
   return React.forwardRef((props, ref) => {
-    return <WrappedMap {...props} forwardedRef={ref} />;
+    return <SyncMap {...props} forwardedRef={ref} />;
   });
 }
 
-export default wrapMap(AbstractMap);
+export default syncMap(AbstractMap);
