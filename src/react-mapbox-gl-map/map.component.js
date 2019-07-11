@@ -63,7 +63,7 @@ class AbstractMap extends Component {
           <MapGL
             style={selectedMapStyle.uri}
             containerStyle={{ width: '50vw', height: '100vh' }}
-            zoom={zoom}
+            zoom={[zoom]}
             center={[longitude, latitude]}
             onStyleLoad={this.onStyleLoad}
             onZoom={this.setViewport}
