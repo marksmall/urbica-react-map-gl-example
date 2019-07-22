@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import syncMove from '@mapbox/mapbox-gl-sync-move';
 
-import ReactMap from '../urbica-map/map.component';
+// import ReactMap from '../urbica-map/map.component';
 // import ReactMap from '../react-mapbox-gl-map/map.component';
-// import ReactMap from '../mapbox-gl-js/map.component';
+import ReactMap from '../mapbox-gl-js/map.component';
 
 import { geocoder } from './map.utils.js';
 
@@ -25,7 +25,7 @@ class MultiMap extends Component {
   }
 
   componentDidMount() {
-    // syncMove(this.mapA.current.map, this.mapB.current.map);
+    syncMove(this.mapA.current.map, this.mapB.current.map);
   }
 
   render() {

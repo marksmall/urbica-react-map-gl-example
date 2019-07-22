@@ -6,6 +6,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { MAPBOX_TOKEN } from '../map/map.utils';
 
+import SelectableScaleControl from '../controls/selectable-scale.control';
+
 import styles from './map.module.css';
 
 mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -91,14 +93,17 @@ class AbstractMap extends Component {
     });
 
     // Add controls to map.
-    //
+
+    // Add SelectableScale control.
+    this.map.addControl(new SelectableScaleControl(), 'bottom-left');
+
     // Add Search geocoder.
     if (geocoder) {
       this.map.addControl(geocoder);
     }
 
     this.map.addControl(new NavigationControl(), 'bottom-right');
-    this.map.addControl(new ScaleControl(), 'bottom-right');
+    // this.map.addControl(new ScaleControl(), 'bottom-right');
 
     // Setup map events.
     //
